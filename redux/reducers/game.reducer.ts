@@ -5,6 +5,7 @@ import { InitialGameState } from "./types";
 const initialState: InitialGameState = {
 	currentCategory: "All",
 	items: games,
+	searchQuery: "",
 };
 
 const GameSlice = createSlice({
@@ -19,17 +20,19 @@ const GameSlice = createSlice({
 			state.items = action.payload;
 		},
 
-		resetItems: (state) => {
+		resetGamesItems: (state) => {
 			state.items = games;
+			state.currentCategory = "All";
+			state.searchQuery = "";
 		},
 
-		resetCategory: (state) => {
-			state.currentCategory = "All";
+		gameSearchQuery: (state, action) => {
+			state.searchQuery = action.payload;
 		},
 	},
 });
 
-export const { setGameCategory, setGameItems, resetItems, resetCategory } =
+export const { setGameCategory, setGameItems, resetGamesItems, gameSearchQuery } =
 	GameSlice.actions;
 
 export default GameSlice.reducer;

@@ -1,5 +1,9 @@
 import { games } from "@/db/games";
-import { setGameCategory, setGameItems } from "@/redux/reducers/game.reducer";
+import {
+	gameSearchQuery,
+	setGameCategory,
+	setGameItems,
+} from "@/redux/reducers/game.reducer";
 import { RootState } from "@/redux/store";
 import { appConstants } from "@/utils/helpers/constants";
 import React from "react";
@@ -10,7 +14,7 @@ export default function useFilter() {
 
 	const dispatch = useDispatch();
 
-	const { currentCategory } = store;
+	const { currentCategory , searchQuery} = store;
 
 	const onCategoryChange = (category: string) => {
 		dispatch(setGameCategory(category));
@@ -32,11 +36,14 @@ export default function useFilter() {
 				)
 			)
 		);
+
+		dispatch(gameSearchQuery(value));
 	};
 
 	return {
 		currentCategory,
 		onSearch,
 		onCategoryChange,
+		searchQuery
 	};
 }
