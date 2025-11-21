@@ -9,12 +9,14 @@ export default function FavoriteButton({ game }: { game: Game }) {
 
 	const notify = (message: string) =>
 		toast(message, {
-			position: "top-center",
+			position: "bottom-right",
 			autoClose: 2000,
 		});
 
 	// check if game exists in favorites
 	useEffect(() => {
+		if (typeof window === "undefined") return;
+
 		const stored: Game[] = JSON.parse(
 			localStorage.getItem("favorites") || "[]"
 		);
@@ -23,6 +25,8 @@ export default function FavoriteButton({ game }: { game: Game }) {
 	}, [game.id]);
 
 	const handleClick = () => {
+		if (typeof window === "undefined") return;
+
 		const stored: Game[] = JSON.parse(
 			localStorage.getItem("favorites") || "[]"
 		);

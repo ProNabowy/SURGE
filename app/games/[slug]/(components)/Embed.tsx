@@ -12,11 +12,13 @@ export default function Embed() {
 
 	const notify = () =>
 		toast("Copied", {
-			position: "top-center",
+			position: "bottom-right",
 			autoClose: 5000,
 		});
 
 	const copyToClipboard = (text: string) => {
+		if (typeof window === "undefined") return;
+		
 		navigator.clipboard.writeText(text);
 
 		notify();

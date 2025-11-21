@@ -1,7 +1,10 @@
 "use client";
+import dynamic from "next/dynamic";
 
-import { GameCard } from "@/components";
+const GameCard = dynamic(() => import("@/components/GameCard"));
+
 import { Game } from "@/components/types";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -9,8 +12,13 @@ export default function FavoritesContainer() {
 	const [favorites, setFavorites] = useState<Game[]>([]);
 
 	useEffect(() => {
+		if (typeof window === "undefined") return;
+
 		const stored = JSON.parse(localStorage.getItem("favorites") || "[]");
+
 		setFavorites(stored);
+
+		return () => {};
 	}, []);
 
 	if (!favorites.length)
