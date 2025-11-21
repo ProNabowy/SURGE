@@ -1,3 +1,4 @@
+import ReduxProvider from "@/providers/ReduxProvider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "./Footer";
@@ -27,7 +28,9 @@ export default function Layout({
 				className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
 			>
 				<Header />
-				<main className="flex-1">{children}</main>
+				<main className="flex-1">
+					<ReduxProvider>{children}</ReduxProvider>
+				</main>
 				<Footer />
 			</body>
 		</html>
