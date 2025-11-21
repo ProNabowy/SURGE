@@ -23,6 +23,11 @@ module.exports = {
 				hostname: "**.amazonaws.com",
 				port: "",
 			},
+			{
+				protocol: "https",
+				hostname: "**.gamedistribution.com",
+				port: "",
+			},
 		],
 	},
 };
