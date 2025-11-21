@@ -1,5 +1,3 @@
-interface Window {
-	Pusher: any;
-}
+interface Window {}
 
 declare const window: Window;

@@ -1,13 +1,10 @@
-import { Particles } from "@/components";
 import dynamic from "next/dynamic";
 const Filter = dynamic(() => import("./(components)/Filter"));
 const Games = dynamic(() => import("./(components)/Games"));
 
 export default function page() {
 	return (
-		<div className="flex flex-col gap-10">
-			<Particles />
-
+		<main className="flex flex-col gap-10">
 			<header className="flex flex-col gap-2">
 				<h1
 					className="text-3xl text-white font-bold text-center text-shadow-[0_0_20px_#79f9ff] uppercase"
@@ -27,9 +24,14 @@ export default function page() {
 					and 29,545 Tutorials
 				</p>
 			</header>
-			<Filter />
 
-			<Games />
-		</div>
+			<section aria-labelledby="filter-section">
+				<Filter />
+			</section>
+
+			<section aria-labelledby="games-section">
+				<Games />
+			</section>
+		</main>
 	);
 }

@@ -6,7 +6,7 @@ export default function GameCard({ game }: { game: Game }) {
 	return (
 		<li>
 			<article>
-				<Link href="/" className="flex flex-col gap-1">
+				<Link href={`/games/${game.id}`} className="flex flex-col gap-1">
 					<GameImageContainer alt={game.title} src={game.assets[0]} />
 
 					<h3 className="font-bold text-white line-clamp-1">{game.title}</h3>

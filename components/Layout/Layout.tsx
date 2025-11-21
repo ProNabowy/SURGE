@@ -1,6 +1,9 @@
 import ReduxProvider from "@/providers/ReduxProvider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ToastContainer } from "react-toastify";
+import NgProgress from "../NgProgress";
+import Particles from "../Particles";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -27,8 +30,14 @@ export default function Layout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
 			>
+				<Particles />
+
+				<ToastContainer />
+
+				<NgProgress />
+
 				<Header />
-				<main className="flex-1">
+				<main className="flex-1 mb-10">
 					<ReduxProvider>{children}</ReduxProvider>
 				</main>
 				<Footer />
