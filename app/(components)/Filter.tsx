@@ -9,7 +9,7 @@ export default function Filter() {
 
 	return (
 		<section className="container flex flex-col gap-5">
-			<div className="flex items-center justify-center gap-4 flex-wrap">
+			<div className="flex items-center justify-center gap-4 flex-wrap md:max-w-[500px] m-auto">
 				{[appConstants.CATEGORIES_ALL_KEY, ...CATEGORIES].map((category) => {
 					return (
 						<button

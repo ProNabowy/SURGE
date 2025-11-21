@@ -1,0 +1,4 @@
+import * as React from "react";
+import type { SVGProps } from "react";
+const SvgFilledHeart = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width={19} height={19} fill="none" {...props}><path fill="#F04438" fillRule="evenodd" stroke="#F04438" strokeLinecap="round" strokeLinejoin="round" d="M9.495 4.31c-1.512-1.768-4.033-2.243-5.928-.625-1.894 1.619-2.16 4.325-.673 6.239 1.237 1.591 4.98 4.948 6.207 6.035.137.121.205.182.285.206a.4.4 0 0 0 .217 0c.08-.024.148-.085.286-.206 1.226-1.087 4.97-4.444 6.206-6.035 1.488-1.914 1.254-4.637-.673-6.239-1.927-1.601-4.416-1.143-5.927.625" clipRule="evenodd" /></svg>;
+export default SvgFilledHeart;

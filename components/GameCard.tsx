@@ -1,10 +1,13 @@
 import Link from "next/link";
+import FavoriteButton from "./FavoriteButton";
 import GameImageContainer from "./GameImageContainer";
 import { Game } from "./types";
 
 export default function GameCard({ game }: { game: Game }) {
 	return (
-		<li>
+		<li className="relative">
+			<FavoriteButton game={game} />
+
 			<article>
 				<Link href={`/games/${game.id}`} className="flex flex-col gap-1">
 					<GameImageContainer alt={game.title} src={game.assets[0]} />
