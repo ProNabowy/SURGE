@@ -9,10 +9,6 @@ export default function useHeaderRoutes() {
 			path: "/games",
 		},
 		{
-			name: "Featured",
-			path: "/featured",
-		},
-		{
 			name: "Favorites",
 			path: "/favorites",
 		},

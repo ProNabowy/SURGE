@@ -1,8 +1,8 @@
 "use client";
 
-import default_bg from "@/public/images/default_game.jpg";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { useState } from "react";
+import defaultImage from "../public/images/default_game.jpg";
 
 export default function GameImageContainer({
 	src,
@@ -11,14 +11,18 @@ export default function GameImageContainer({
 	src: string;
 	alt: string;
 }) {
-	const [image, setImage] = useState<string | StaticImageData>(src);
+	const [imageHasError, setIsImageHasError] = useState<boolean>(false);
 
 	return (
 		<figure>
 			<Image
-				src={`https://img.gamedistribution.com/${image}`}
+				src={
+					imageHasError
+						? defaultImage
+						: `https://img.gamedistribution.com/${src}`
+				}
 				alt={alt}
-				onError={() => setImage(default_bg)}
+				onError={() => setIsImageHasError(true)}
 				width={165}
 				loading="lazy"
 				height={123}
