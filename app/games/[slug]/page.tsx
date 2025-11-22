@@ -34,14 +34,6 @@ export default async function page({
 
 						<main className="bg-[#f6f6f6] rounded-lg">
 							<div className="flex items-center justify-between px-5 border-b border-b-gray-300 py-3">
-								<div className="flex items-center gap-4">
-									<button className="rounded-full border border-[#3b21cc] text-[#3b21cc] py-1 px-4 text-sm font-semibold">
-										Share
-									</button>
-									<button className="rounded-full border border-[#3b21cc] text-[#3b21cc] py-1 px-4 text-sm font-semibold">
-										Open in a new tab
-									</button>
-								</div>
 								<Crystal />
 							</div>
 							<div className="px-5 border-b border-b-gray-300 py-3">
