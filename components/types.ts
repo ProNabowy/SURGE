@@ -6,3 +6,7 @@ export type Game = {
 	assets: string[];
 	category: string;
 };
+
+export type BreadcrumbsProps = {
+	routes: string[];
+};

@@ -31,7 +31,7 @@ export default function GameIframe({ slug }: { slug: string }) {
 
 				<iframe
 					ref={iframeRef}
-					src="https://html5.gamedistribution.com/e5e957d23d1247b48a4a9a315fc96249"
+					src={`https://html5.gamedistribution.com/${slug}`}
 					className="w-full h-[300px] sm:h-[600px]"
 					scrolling="none"
 					allowFullScreen
