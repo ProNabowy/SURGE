@@ -14,7 +14,7 @@ export default function useFilter() {
 
 	const dispatch = useDispatch();
 
-	const { currentCategory , searchQuery} = store;
+	const { currentCategory, searchQuery, items } = store;
 
 	const onCategoryChange = (category: string) => {
 		dispatch(setGameCategory(category));
@@ -31,9 +31,17 @@ export default function useFilter() {
 
 		dispatch(
 			setGameItems(
-				games.filter((game) =>
-					game.title.toLowerCase().includes(value.toLowerCase())
-				)
+				games.filter((game) => {
+					const matchesTitle = game.title
+						.toLowerCase()
+						.includes(value.toLowerCase());
+
+					const matchesCategory =
+						currentCategory === appConstants.CATEGORIES_ALL_KEY ||
+						game.category === currentCategory;
+
+					return matchesTitle && matchesCategory;
+				})
 			)
 		);
 
@@ -44,6 +52,6 @@ export default function useFilter() {
 		currentCategory,
 		onSearch,
 		onCategoryChange,
-		searchQuery
+		searchQuery,
 	};
 }

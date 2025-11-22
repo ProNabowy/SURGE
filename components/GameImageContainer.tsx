@@ -13,8 +13,19 @@ export default function GameImageContainer({
 }) {
 	const [imageHasError, setIsImageHasError] = useState<boolean>(false);
 
+	const [loading, setLoading] = useState<boolean>(true);
+
+	const onErrorHandler = () => {
+		setIsImageHasError(true);
+		setLoading(false);
+	};
+
 	return (
-		<figure>
+		<figure className="relative w-full h-[123px] overflow-hidden rounded-md">
+			{loading && (
+				<div className="absolute inset-0 bg-gray-700/50 animate-pulse rounded-md" />
+			)}
+
 			<Image
 				src={
 					imageHasError
@@ -22,11 +33,12 @@ export default function GameImageContainer({
 						: `https://img.gamedistribution.com/${src}`
 				}
 				alt={alt}
-				onError={() => setIsImageHasError(true)}
+				onLoad={() => setLoading(false)}
+				onError={onErrorHandler}
 				width={165}
 				loading="lazy"
 				height={123}
-				className="w-full h-[123px] object-cover rounded-md"
+				className="w-full h-[123px] object-cover rounded-md transition hover:scale-120"
 			/>
 		</figure>
 	);
